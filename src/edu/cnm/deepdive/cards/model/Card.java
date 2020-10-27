@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.cards.model;
 
-import java.lang.Comparable;
 import java.util.Objects;
 
 public final class Card implements Comparable<Card> {
@@ -16,8 +15,8 @@ public final class Card implements Comparable<Card> {
   }
 
   @Override
-  public String toString() {
-    return super.toString();
+  public int hashCode() {
+    return hash;
   }
 
   @Override
@@ -35,16 +34,8 @@ public final class Card implements Comparable<Card> {
   }
 
   @Override
-  public int hashCode() {
-    return hash;
-  }
-
-  public Rank getRank() {
-    return rank;
-  }
-
-  public Suit getSuit() {
-    return suit;
+  public String toString() {
+    return rank.getSymbol() + suit.getSymbol();
   }
 
   @Override
@@ -55,4 +46,13 @@ public final class Card implements Comparable<Card> {
     }
     return comparison;
   }
+
+  public Rank getRank() {
+    return rank;
+  }
+
+  public Suit getSuit() {
+    return suit;
+  }
+
 }
